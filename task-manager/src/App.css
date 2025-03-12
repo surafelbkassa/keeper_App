@@ -7,14 +7,43 @@ body{
     margin: 0;
 }
 .header{
-    width: 100%;
-    background-color: #007bff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background-color: #5fba13 !important;
+    margin: auto -16px;
+    padding: 16px 32px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     color: white;
+    width: 100%; /* Make header take full width */
+}
+.task{
+    background-color: white;
+    margin: 16px;
+    padding: 16px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.task-content {
+    flex-grow: 1;
 }
 .container{
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+}
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.btn {
+    margin-left: 16px;
 }

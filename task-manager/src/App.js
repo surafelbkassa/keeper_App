@@ -12,23 +12,35 @@ const App = () => {
     });
   }
 
+  function deleteTask(id) {
+    setTasks((prevTasks) => {
+      return prevTasks.filter((task, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
-    <div className='header'>
+      <div className='header'>
         <h2>Task manager</h2>
       </div>
-    <div className='container'>
-      
-      <Form addTask={addTask} />
-      {tasks.map((task, index) => {
-        return (
-          <div key={index}>
-            <h3>{task.taskName}</h3>
-            <p>{task.description}</p>
-          </div>
-        );
-      })}
-    </div>
+      <div className='container'>
+        <Form addTask={addTask} />
+        <div className='tasks-grid'>
+          {tasks.map((task, index) => {
+            return (
+              <div key={index} id={index} className='task'>
+                <div className='task-content'>
+                  <h3>{task.taskName}</h3>
+                  <p>{task.description}</p>
+                </div>
+                <button className='btn' onClick={() => deleteTask(index)}>Delete</button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   )
 }

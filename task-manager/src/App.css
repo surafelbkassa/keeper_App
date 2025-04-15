@@ -1,49 +1,196 @@
-body{
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
     display: flex;
-    background-color: #bbb;
     justify-content: center;
-    /* align-items: center; */
+    align-items: flex-start;
+    background-color: #f4f4f9;
     height: 100vh;
     margin: 0;
+    padding: 20px;
+    color: #333;
 }
-.header{
-    background-color: #5fba13 !important;
-    margin: auto -16px;
-    padding: 16px 32px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+
+/* Header Styling */
+.header {
+    background-color: #4CAF50;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: white;
-    width: 100%; /* Make header take full width */
-}
-.task{
-    background-color: white;
-    margin: 16px;
-    padding: 16px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-    border: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.task-content {
-    flex-grow: 1;
-}
-.container{
+    text-align: center;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin-bottom: 20px;
 }
+
+.header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Container Styling */
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Container */
+.form-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 20px auto; /* Add spacing below the form */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tasks Container */
+.tasks-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Task Grid */
 .tasks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 20px;
+    margin-top: 20px;
+    justify-items: center; /* Center items by default */
 }
+
+/* Task Card */
+.task {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* For positioning icons */
+    height: 150px; /* Fixed height for uniformity */
+    width: 200px; /* Fixed width for uniformity */
+}
+
+/* Completed Task */
+.task.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Task Content */
+.task-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.task-content p {
+    font-size: 14px;
+    color: #666;
+    word-wrap: break-word;
+    flex-grow: 1; /* Push icons to the bottom */
+}
+
+/* Icons */
+.task-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.task-icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.task-icons button:hover {
+    background-color: #f0f0f0;
+}
+
+.task-icons .done-icon {
+    color: #4CAF50;
+    font-size: 16px;
+}
+
+.task-icons .delete-icon {
+    color: #ff4d4d;
+    font-size: 16px;
+}
+
+.task-icons .edit-icon {
+    color: #007BFF;
+    font-size: 16px;
+}
+
+/* Buttons */
+.btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e60000;
+}
+
+/* Form Styling */
 input, textarea {
     width: 100%;
-    padding: 8px;
-    margin: 8px 0;
-    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
 }
-.btn {
-    margin-left: 16px;
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+button.btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #45a049;
 }

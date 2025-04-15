@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const Form = (props) => {
   const [task, setTask] = useState({
@@ -6,18 +6,20 @@ const Form = (props) => {
     description: ''
   });
 
-  function handleChange(event) {   
+  function handleChange(event) {
     const { name, value } = event.target;
-    setTask((prevTask) => {
-      return {
-        ...prevTask,
-        [name]: value
-      }
-    });
+    setTask((prevTask) => ({
+      ...prevTask,
+      [name]: value
+    }));
   }
 
   function submitTask(event) {
     event.preventDefault();
+    if (!task.taskName.trim()) {
+      alert("Task name is required!");
+      return;
+    }
     props.addTask(task);
     setTask({ taskName: '', description: '' }); // Reset the form
   }
@@ -31,24 +33,24 @@ const Form = (props) => {
 
   return (
     <div>
-        <input 
-          type="text" 
-          name="taskName" // Added name attribute
-          value={task.taskName} 
-          placeholder="Task" 
-          onChange={handleChange}
-          onKeyDown={handleEnter} // Added onKeyDown event
-        />
-        <textarea 
-          name="description" // Added name attribute
-          value={task.description} 
-          placeholder="Description" 
-          onChange={handleChange}
-          onKeyDown={handleEnter} // Added onKeyDown event
-        ></textarea>
-        <button className='btn' onClick={submitTask}>Add task</button>
+      <input
+        type="text"
+        name="taskName"
+        value={task.taskName}
+        placeholder="Task"
+        onChange={handleChange}
+        onKeyDown={handleEnter}
+      />
+      <textarea
+        name="description"
+        value={task.description}
+        placeholder="Description"
+        onChange={handleChange}
+        onKeyDown={handleEnter}
+      ></textarea>
+      <button className="btn" onClick={submitTask}>Add task</button>
     </div>
-  )
-}
+  );
+};
 
 export default Form;
